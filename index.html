@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-i18n="head.title">PDF Suite Pro — Outils PDF professionnels</title>
+  <meta name="description" data-i18n="head.description" content="Suite PDF complète : conversion, fusion, compression, protection. Interface moderne et sécurisée.">
+  
+  <!-- Preconnect pour optimiser le chargement des fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon et meta tags pour PWA (optionnel) -->
+  <meta name="theme-color" content="#2b6ef6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SVG Sprite optimisé avec icônes professionnelles -->
+  <svg width="0" height="0" style="position:absolute;visibility:hidden" aria-hidden="true">
+    <defs>
+      <symbol id="i-pdf-word" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+        <path fill="#fff" d="M13 2v5h5"/>
+      </symbol>
+      <symbol id="i-word-pdf" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M4 3h10l6 6v12a2 2 0 0 1-2 2H4z"/>
+        <path fill="#fff" d="M7 8h7v2H7zm0 4h10v2H7z"/>
+      </symbol>
+      <symbol id="i-img-pdf" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="2" fill="currentColor"/>
+        <path fill="#fff" d="M7 15l3-4 2 2 3-4 4 6H7z"/>
+      </symbol>
+      <symbol id="i-merge" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 7h14v2H3zm0 5h18v2H3zm0 5h10v2H3z"/>
+      </symbol>
+      <symbol id="i-split" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M4 6h8v2H6v12H4zM12 6h8v2h-6v12h-2z"/>
+      </symbol>
+      <symbol id="i-compress" viewBox="0 0 24 24">
+        <path fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 12h16M12 4v16"/>
+      </symbol>
+      <symbol id="i-rotate" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M21 12A9 9 0 1 0 6 20l2-1.2A7 7 0 1 1 19 9l2-1.2V12z"/>
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="4" y="11" width="16" height="10" rx="2" fill="currentColor"/>
+        <path fill="#fff" d="M7 11V8a5 5 0 0 1 10 0v3"/>
+      </symbol>
+      <symbol id="i-unlock" viewBox="0 0 24 24">
+        <rect x="4" y="11" width="16" height="10" rx="2" fill="currentColor"/>
+        <path fill="#fff" d="M9 8a5 5 0 0 1 9.9-1.3"/>
+      </symbol>
+      <symbol id="i-sign" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 21h18v-2H3zM7 12c3-3 6 3 9 0"/>
+      </symbol>
+      <symbol id="i-watermark" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="3" fill="currentColor"/>
+        <path fill="currentColor" d="M3 21a9 9 0 0 1 18 0z"/>
+      </symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M4 15l10-10 5 5-10 10H4z"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M6 18L18 6"/>
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+      </symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 9l6 6 6-6"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Header avec navigation sticky améliorée -->
+  <header class="header" id="header">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="PDF Suite Pro - Accueil">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-word">PDF Suite Pro</span>
+      </a>
+      
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#tools" data-i18n="nav.tools">Outils</a>
+        <a href="#features" data-i18n="nav.features">Fonctionnalités</a>
+        <a href="#pricing" data-i18n="nav.pricing">Tarifs</a>
+        <a href="#support" data-i18n="nav.ai">Support IA</a>
+      </nav>
+      
+      <div class="nav-ctas">
+        <!-- Sélecteur de langue amélioré -->
+        <div class="lang-switch" id="lang-switch">
+          <button class="btn btn-outline lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choisir la langue">
+            <span id="lang-current" aria-live="polite">FR</span>
+            <svg width="14" height="14" aria-hidden="true" style="margin-left:6px">
+              <use href="#i-chevron-down"/>
+            </svg>
+          </button>
+          <ul class="lang-menu" id="lang-menu" role="listbox" aria-label="Sélection de langue">
+            <li role="option" data-lang="fr" tabindex="0">🇫🇷 Français</li>
+            <li role="option" data-lang="en" tabindex="0">🇬🇧 English</li>
+            <li role="option" data-lang="es" tabindex="0">🇪🇸 Español</li>
+            <li role="option" data-lang="ar" data-dir="rtl" tabindex="0">🇸🇦 العربية</li>
+          </ul>
+        </div>
+        
+        <button class="btn btn-outline" id="login-btn" data-i18n="header.login">Connexion</button>
+        <button class="btn btn-primary" id="signup-btn" data-i18n="header.signup">S'inscrire</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero section avec animation d'entrée -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1 class="h1 fade-in-up" data-i18n="hero.title">Suite PDF professionnelle — rapide, sûre, intelligente</h1>
+        <p class="lead fade-in-up" style="animation-delay: 0.1s" data-i18n="hero.lead">Convertissez, fusionnez, compressez et protégez vos PDF en quelques clics. Une interface sobre avec des icônes nettes et une hiérarchie claire, comme les leaders du marché.</p>
+        
+        <!-- Stats rapides pour crédibilité -->
+        <div class="hero-stats fade-in-up" style="animation-delay: 0.2s">
+          <div class="stat">
+            <strong>1M+</strong>
+            <span data-i18n="hero.stats.users">Utilisateurs</span>
+          </div>
+          <div class="stat">
+            <strong>4.9/5</strong>
+            <span data-i18n="hero.stats.rating">Note moyenne</span>
+          </div>
+          <div class="stat">
+            <strong>10M+</strong>
+            <span data-i18n="hero.stats.files">Fichiers traités</span>
+          </div>
+        </div>
+        
+        <div class="hero-ctas fade-in-up" style="animation-delay: 0.3s">
+          <a href="#tools" class="btn btn-primary btn-large" data-i18n="hero.cta.tools">Essayer les outils</a>
+          <button class="btn btn-outline btn-large" id="test-ai-btn" data-i18n="hero.cta.ai">Tester l'IA</button>
+        </div>
+      </div>
+      
+      <aside class="hero-visual fade-in-up" style="animation-delay: 0.4s" aria-hidden="true">
+        <div class="hero-card">
+          <div class="file-preview">
+            <div class="file-item">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 2v6h6"/>
+              </svg>
+              <div>
+                <div class="file-name">Document.pdf</div>
+                <div class="file-size">2.4 MB</div>
+              </div>
+            </div>
+            <div class="conversion-arrow">→</div>
+            <div class="file-item">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 2v6h6"/>
+                <path d="M9 13h6M9 17h6"/>
+              </svg>
+              <div>
+                <div class="file-name">Document.docx</div>
+                <div class="file-size">1.2 MB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    
+    <!-- Vague décorative pour transition -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#fff"/>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#fff"/>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#fff"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Section Outils avec grille améliorée -->
+  <section id="tools" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" data-i18n="tools.badge">Outils</span>
+        <h2 data-i18n="tools.title">Outils PDF complets</h2>
+        <p data-i18n="tools.subtitle">Cartes épurées, icônes SVG, actions claires. Modèle inspiré des grilles pros (Adobe/Smallpdf).</p>
+      </div>
+
+      <!-- Barre Premium redesignée -->
+      <div class="premium-bar">
+        <div class="premium-content">
+          <div class="premium-icon">⭐</div>
+          <div>
+            <h3 data-i18n="tools.premium.title">Débloquez les fonctionnalités Premium</h3>
+            <p data-i18n="tools.premium.description">Signature numérique, protection avancée, édition complète.</p>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="premium-btn" data-i18n="tools.premium.cta">Passer à Premium</button>
+      </div>
+
+      <!-- Grille d'outils avec animations au scroll -->
+      <div class="tools-grid">
+        <!-- Outils gratuits -->
+        <article class="card card-animate" data-tool="pdf-to-word">
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-pdf-word"/></svg>
+            <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
+          </div>
+          <h3 data-i18n="card.pdfword.title">PDF vers Word</h3>
+          <p data-i18n="card.pdfword.desc">Convertir PDF en Word modifiable.</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate" data-tool="word-to-pdf">
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-word-pdf"/></svg>
+            <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
+          </div>
+          <h3 data-i18n="card.wordpdf.title">Word vers PDF</h3>
+          <p data-i18n="card.wordpdf.desc">Convertir documents Word en PDF.</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate" data-tool="jpg-to-pdf">
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-img-pdf"/></svg>
+            <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
+          </div>
+          <h3 data-i18n="card.jpgpdf.title">JPG vers PDF</h3>
+          <p data-i18n="card.jpgpdf.desc">Assembler des images en PDF.</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate" data-tool="merge">
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-merge"/></svg>
+            <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
+          </div>
+          <h3 data-i18n="card.merge.title">Fusionner PDF</h3>
+          <p data-i18n="card.merge.desc">Combiner plusieurs PDF.</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate" data-tool="split">
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-split"/></svg>
+            <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
+          </div>
+          <h3 data-i18n="card.split.title">Diviser PDF</h3>
+          <p data-i18n="card.split.desc">Séparer en plusieurs fichiers.</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate" data-tool="compress">
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-compress"/></svg>
+            <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
+          </div>
+          <h3 data-i18n="card.compress.title">Compresser PDF</h3>
+          <p data-i18n="card.compress.desc">Réduire la taille du PDF.</p>
+          <div class="card-actions">
+            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <!-- Outils premium -->
+        <article class="card card-animate card-premium" data-tool="rotate">
+          <div class="card-premium-badge">Premium</div>
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-rotate"/></svg>
+            <span class="badge badge-prem" data-i18n="badge.premium">Premium</span>
+          </div>
+          <h3 data-i18n="card.rotate.title">Pivoter PDF</h3>
+          <p data-i18n="card.rotate.desc">Faire pivoter des pages.</p>
+          <div class="card-actions">
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate card-premium" data-tool="protect">
+          <div class="card-premium-badge">Premium</div>
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-lock"/></svg>
+            <span class="badge badge-prem" data-i18n="badge.premium">Premium</span>
+          </div>
+          <h3 data-i18n="card.protect.title">Protéger PDF</h3>
+          <p data-i18n="card.protect.desc">Ajouter un mot de passe.</p>
+          <div class="card-actions">
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate card-premium" data-tool="unlock">
+          <div class="card-premium-badge">Premium</div>
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-unlock"/></svg>
+            <span class="badge badge-prem" data-i18n="badge.premium">Premium</span>
+          </div>
+          <h3 data-i18n="card.unlock.title">Déverrouiller PDF</h3>
+          <p data-i18n="card.unlock.desc">Supprimer les restrictions.</p>
+          <div class="card-actions">
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate card-premium" data-tool="sign">
+          <div class="card-premium-badge">Premium</div>
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-sign"/></svg>
+            <span class="badge badge-prem" data-i18n="badge.premium">Premium</span>
+          </div>
+          <h3 data-i18n="card.sign.title">Signer PDF</h3>
+          <p data-i18n="card.sign.desc">Ajouter signature numérique.</p>
+          <div class="card-actions">
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate card-premium" data-tool="watermark">
+          <div class="card-premium-badge">Premium</div>
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-watermark"/></svg>
+            <span class="badge badge-prem" data-i18n="badge.premium">Premium</span>
+          </div>
+          <h3 data-i18n="card.watermark.title">Filigrane</h3>
+          <p data-i18n="card.watermark.desc">Ajouter un filigrane.</p>
+          <div class="card-actions">
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+
+        <article class="card card-animate card-premium" data-tool="edit">
+          <div class="card-premium-badge">Premium</div>
+          <div class="card-top">
+            <svg class="tool-icon"><use href="#i-edit"/></svg>
+            <span class="badge badge-prem" data-i18n="badge.premium">Premium</span>
+          </div>
+          <h3 data-i18n="card.edit.title">Éditer PDF</h3>
+          <p data-i18n="card.edit.desc">Modifier texte et images.</p>
+          <div class="card-actions">
+            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Fonctionnalités avec avantages -->
+  <section id="features" class="section section-features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" data-i18n="features.badge">Fonctionnalités</span>
+        <h2 data-i18n="features.title">Pourquoi choisir PDF Suite Pro ?</h2>
+        <p data-i18n="features.subtitle">Découvrez ce qui rend PDF Suite Pro unique.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <h3 data-i18n="features.security.title">Sécurité maximale</h3>
+          <p data-i18n="features.security.desc">Vos fichiers sont cryptés et supprimés automatiquement après traitement.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <h3 data-i18n="features.speed.title">Ultra-rapide</h3>
+          <p data-i18n="features.speed.desc">Traitement en quelques secondes grâce à nos serveurs optimisés.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎯</div>
+          <h3 data-i18n="features.accuracy.title">Précision parfaite</h3>
+          <p data-i18n="features.accuracy.desc">Préservation de la mise en page et du formatage original.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌐</div>
+          <h3 data-i18n="features.cloud.title">100% en ligne</h3>
+          <p data-i18n="features.cloud.desc">Aucune installation requise, accessible de partout.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🤖</div>
+          <h3 data-i18n="features.ai.title">Assistant IA</h3>
+          <p data-i18n="features.ai.desc">Support intelligent disponible 24/7 pour vous guider.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💎</div>
+          <h3 data-i18n="features.quality.title">Qualité pro</h3>
+          <p data-i18n="features.quality.desc">Utilisé par plus d'un million de professionnels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Tarifs -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" data-i18n="pricing.badge">Tarifs</span>
+        <h2 data-i18n="pricing.title">Choisissez votre plan</h2>
+        <p data-i18n="pricing.subtitle">Des plans adaptés à tous les besoins, du gratuit au premium.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan Gratuit -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 data-i18n="pricing.free.title">Gratuit</h3>
+            <div class="pricing-price">
+              <span class="price-amount">0€</span>
+              <span class="price-period" data-i18n="pricing.free.period">/mois</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.free.feature1">6 outils essentiels</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.free.feature2">2 fichiers/heure</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.free.feature3">Taille max: 10 MB</span></li>
+          </ul>
+          <button class="btn btn-outline btn-block" data-i18n="pricing.free.cta">Commencer gratuitement</button>
+        </div>
+
+        <!-- Plan Premium -->
+        <div class="pricing-card pricing-card-featured">
+          <div class="pricing-badge">Populaire</div>
+          <div class="pricing-header">
+            <h3 data-i18n="pricing.premium.title">Premium</h3>
+            <div class="pricing-price">
+              <span class="price-amount">9.99€</span>
+              <span class="price-period" data-i18n="pricing.premium.period">/mois</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.premium.feature1">12 outils complets</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.premium.feature2">Fichiers illimités</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.premium.feature3">Taille max: 100 MB</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.premium.feature4">Support prioritaire</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.premium.feature5">Signature numérique</span></li>
+          </ul>
+          <button class="btn btn-primary btn-block" data-i18n="pricing.premium.cta">Passer à Premium</button>
+        </div>
+
+        <!-- Plan Entreprise -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 data-i18n="pricing.enterprise.title">Entreprise</h3>
+            <div class="pricing-price">
+              <span class="price-amount" data-i18n="pricing.enterprise.custom">Sur mesure</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.feature1">Tout Premium +</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.feature2">API dédiée</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.feature3">Multi-utilisateurs</span></li>
+            <li><svg width="20" height="20"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.feature4">Support 24/7</span></li>
+          </ul>
+          <button class="btn btn-outline btn-block" data-i18n="pricing.enterprise.cta">Nous contacter</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Support IA -->
+  <section id="support" class="section section-ai-support">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" data-i18n="ai.badge">Intelligence Artificielle</span>
+        <h2 data-i18n="ai.title">Support IA 24/7</h2>
+        <p data-i18n="ai.subtitle">Votre assistant intelligent pour toutes vos questions PDF.</p>
+      </div>
+      
+      <div class="ai-demo">
+        <div class="ai-demo-content">
+          <h3 data-i18n="ai.demo.title">Posez vos questions en langage naturel</h3>
+          <p data-i18n="ai.demo.desc">Notre IA comprend vos besoins et vous guide vers la meilleure solution.</p>
+          <button class="btn btn-primary btn-large" id="open-ai-chat" data-i18n="ai.demo.cta">Essayer l'assistant IA</button>
+        </div>
+        <div class="ai-demo-visual">
+          <div class="chat-bubble chat-bubble-user">Comment convertir un PDF en Word ?</div>
+          <div class="chat-bubble chat-bubble-bot">Utilisez notre outil "PDF vers Word" qui préserve la mise en page. Cliquez ici pour commencer !</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cookie banner amélioré -->
+  <div id="cookie-banner" class="cookie" role="dialog" aria-live="polite" aria-labelledby="cookie-title" hidden>
+    <div class="cookie-content">
+      <p id="cookie-title" data-i18n="cookie.message">🍪 Nous utilisons des cookies essentiels pour améliorer votre expérience et garantir la sécurité de nos services.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn btn-ghost btn-small" id="cookie-settings" data-i18n="cookie.settings">Gérer</button>
+      <button class="btn btn-primary btn-small" id="cookie-accept" data-i18n="cookie.accept">Accepter</button>
+    </div>
+  </div>
+
+  <!-- Footer professionnel -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand">
+            <span class="brand-mark"></span>
+            <span class="brand-word">PDF Suite Pro</span>
+          </div>
+          <p data-i18n="footer.tagline">Suite complète pour vos PDF. Rapide, sûre, professionnelle.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4 data-i18n="footer.product.title">Produit</h4>
+          <a href="#tools" data-i18n="nav.tools">Outils</a>
+          <a href="#pricing" data-i18n="nav.pricing">Tarifs</a>
+          <a href="#features" data-i18n="nav.features">Fonctionnalités</a>
+        </div>
+        
+        <div class="footer-links">
+          <h4 data-i18n="footer.support.title">Support</h4>
+          <a href="#support" data-i18n="nav.ai">Assistant IA</a>
+          <a href="#" data-i18n="footer.help">Centre d'aide</a>
+          <a href="#" data-i18n="footer.contact">Contact</a>
+        </div>
+        
+        <div class="footer-links">
+          <h4 data-i18n="footer.legal.title">Légal</h4>
+          <a href="#" data-i18n="footer.privacy">Confidentialité</a>
+          <a href="#" data-i18n="footer.terms">Conditions</a>
+          <a href="#" data-i18n="footer.cookies">Cookies</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">© 2025 PDF Suite Pro. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal d'aperçu modernisé -->
+  <dialog id="previewModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="previewTitle" data-i18n="modal.preview.title">Aperçu du traitement</h3>
+        <button class="modal-close" aria-label="Fermer">
+          <svg width="24" height="24"><use href="#i-close"/></svg>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Zone de dépôt de fichiers drag & drop -->
+        <div class="file-drop-zone" id="file-drop-zone">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+          </svg>
+          <p data-i18n="modal.drop.text">Glissez-déposez vos fichiers ici</p>
+          <span data-i18n="modal.drop.or">ou</span>
+          <input type="file" id="modal-file-input" accept="application/pdf,image/*,.doc,.docx" multiple hidden>
+          <button class="btn btn-outline" id="modal-upload-btn" data-i18n="modal.preview.upload">Parcourir les fichiers</button>
+        </div>
+        
+        <ul id="modal-file-list" class="file-list"></ul>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="modal-cancel" data-i18n="modal.cancel">Annuler</button>
+        <button class="btn btn-primary" id="modal-confirm" data-i18n="modal.confirm">Lancer le traitement</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Avatar IA amélioré avec badge notification -->
+  <div class="ai-assistant-container" id="ai-assistant-container">
+    <button class="ai-avatar-button" id="ai-avatar-button" aria-label="Ouvrir l'assistant IA">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+      </svg>
+      <span class="ai-pulse"></span>
+    </button>
+
+    <div class="ai-chat-window" id="ai-chat-window" aria-hidden="true">
+      <div class="ai-chat-header">
+        <div>
+          <h4 data-i18n="ai.chat.title">Assistant IA</h4>
+          <span class="ai-status" data-i18n="ai.chat.status">En ligne</span>
+        </div>
+        <button class="ai-chat-close-button" id="ai-chat-close-button" aria-label="Fermer">
+          <svg width="20" height="20"><use href="#i-close"/></svg>
+        </button>
+      </div>
+      
+      <div class="ai-chat-body" id="ai-chat-body">
+        <div class="ai-message ai-message-bot" data-i18n="ai.chat.intro">
+          Bonjour ! 👋 Comment puis-je vous aider aujourd'hui avec vos documents PDF ?
+        </div>
+        
+        <!-- Suggestions rapides -->
+        <div class="ai-quick-replies">
+          <button class="quick-reply" data-query="pdf-word" data-i18n="ai.quick.pdf_word">PDF → Word</button>
+          <button class="quick-reply" data-query="merge" data-i18n="ai.quick.merge">Fusionner PDF</button>
+          <button class="quick-reply" data-query="compress" data-i18n="ai.quick.compress">Compresser</button>
+        </div>
+      </div>
+      
+      <div class="ai-chat-footer">
+        <textarea id="ai-chat-input" rows="1" placeholder="Posez votre question..." data-i18n-placeholder="ai.chat.placeholder"></textarea>
+        <button id="ai-chat-send-button" aria-label="Envoyer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
