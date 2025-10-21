@@ -95,7 +95,8 @@
       <div class="nav-ctas">
         <!-- Sélecteur de langue amélioré -->
         <div class="lang-switch" id="lang-switch">
-          <button class="btn btn-outline lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choisir la langue">
+          <!-- CORRECTION : Ajout de data-lang-toggle -->
+          <button data-lang-toggle class="btn btn-outline lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Choisir la langue">
             <span id="lang-current" aria-live="polite">FR</span>
             <svg width="14" height="14" aria-hidden="true" style="margin-left:6px">
               <use href="#i-chevron-down"/>
@@ -140,7 +141,8 @@
         
         <div class="hero-ctas fade-in-up" style="animation-delay: 0.3s">
           <a href="#tools" class="btn btn-primary btn-large" data-i18n="hero.cta.tools">Essayer les outils</a>
-          <button class="btn btn-outline btn-large" id="test-ai-btn" data-i18n="hero.cta.ai">Tester l'IA</button>
+          <!-- CORRECTION : Ajout de data-ai-toggle -->
+          <button class="btn btn-outline btn-large" id="test-ai-btn" data-ai-toggle class="test-ai-btn" data-i18n="hero.cta.ai">Tester l'IA</button>
         </div>
       </div>
       
@@ -208,7 +210,7 @@
       <!-- Grille d'outils avec animations au scroll -->
       <div class="tools-grid">
         <!-- Outils gratuits -->
-        <article class="card card-animate" data-tool="pdf-to-word">
+        <article class="card card-animate" data-tool="PDF vers Word">
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-pdf-word"/></svg>
             <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
@@ -216,12 +218,14 @@
           <h3 data-i18n="card.pdfword.title">PDF vers Word</h3>
           <p data-i18n="card.pdfword.desc">Convertir PDF en Word modifiable.</p>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="PDF vers Word" class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="PDF vers Word" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate" data-tool="word-to-pdf">
+        <article class="card card-animate" data-tool="Word vers PDF">
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-word-pdf"/></svg>
             <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
@@ -229,12 +233,14 @@
           <h3 data-i18n="card.wordpdf.title">Word vers PDF</h3>
           <p data-i18n="card.wordpdf.desc">Convertir documents Word en PDF.</p>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Word vers PDF" class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Word vers PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate" data-tool="jpg-to-pdf">
+        <article class="card card-animate" data-tool="JPG vers PDF">
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-img-pdf"/></svg>
             <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
@@ -242,12 +248,14 @@
           <h3 data-i18n="card.jpgpdf.title">JPG vers PDF</h3>
           <p data-i18n="card.jpgpdf.desc">Assembler des images en PDF.</p>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="JPG vers PDF" class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="JPG vers PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate" data-tool="merge">
+        <article class="card card-animate" data-tool="Fusionner PDF">
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-merge"/></svg>
             <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
@@ -255,12 +263,14 @@
           <h3 data-i18n="card.merge.title">Fusionner PDF</h3>
           <p data-i18n="card.merge.desc">Combiner plusieurs PDF.</p>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Fusionner PDF" class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Fusionner PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate" data-tool="split">
+        <article class="card card-animate" data-tool="Diviser PDF">
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-split"/></svg>
             <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
@@ -268,12 +278,14 @@
           <h3 data-i18n="card.split.title">Diviser PDF</h3>
           <p data-i18n="card.split.desc">Séparer en plusieurs fichiers.</p>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Diviser PDF" class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Diviser PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate" data-tool="compress">
+        <article class="card card-animate" data-tool="Compresser PDF">
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-compress"/></svg>
             <span class="badge badge-free" data-i18n="badge.free">Gratuit</span>
@@ -281,13 +293,15 @@
           <h3 data-i18n="card.compress.title">Compresser PDF</h3>
           <p data-i18n="card.compress.desc">Réduire la taille du PDF.</p>
           <div class="card-actions">
-            <button class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Compresser PDF" class="btn btn-ghost btn-small" data-i18n="card.button.open">Ouvrir</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Compresser PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
         <!-- Outils premium -->
-        <article class="card card-animate card-premium" data-tool="rotate">
+        <article class="card card-animate card-premium" data-tool="Pivoter PDF">
           <div class="card-premium-badge">Premium</div>
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-rotate"/></svg>
@@ -296,11 +310,12 @@
           <h3 data-i18n="card.rotate.title">Pivoter PDF</h3>
           <p data-i18n="card.rotate.desc">Faire pivoter des pages.</p>
           <div class="card-actions">
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Pivoter PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate card-premium" data-tool="protect">
+        <article class="card card-animate card-premium" data-tool="Protéger PDF">
           <div class="card-premium-badge">Premium</div>
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-lock"/></svg>
@@ -309,11 +324,12 @@
           <h3 data-i18n="card.protect.title">Protéger PDF</h3>
           <p data-i18n="card.protect.desc">Ajouter un mot de passe.</p>
           <div class="card-actions">
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Protéger PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate card-premium" data-tool="unlock">
+        <article class="card card-animate card-premium" data-tool="Déverrouiller PDF">
           <div class="card-premium-badge">Premium</div>
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-unlock"/></svg>
@@ -322,11 +338,12 @@
           <h3 data-i18n="card.unlock.title">Déverrouiller PDF</h3>
           <p data-i18n="card.unlock.desc">Supprimer les restrictions.</p>
           <div class="card-actions">
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Déverrouiller PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate card-premium" data-tool="sign">
+        <article class="card card-animate card-premium" data-tool="Signer PDF">
           <div class="card-premium-badge">Premium</div>
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-sign"/></svg>
@@ -335,11 +352,12 @@
           <h3 data-i18n="card.sign.title">Signer PDF</h3>
           <p data-i18n="card.sign.desc">Ajouter signature numérique.</p>
           <div class="card-actions">
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Signer PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate card-premium" data-tool="watermark">
+        <article class="card card-animate card-premium" data-tool="Filigrane">
           <div class="card-premium-badge">Premium</div>
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-watermark"/></svg>
@@ -348,11 +366,12 @@
           <h3 data-i18n="card.watermark.title">Filigrane</h3>
           <p data-i18n="card.watermark.desc">Ajouter un filigrane.</p>
           <div class="card-actions">
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Filigrane" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
 
-        <article class="card card-animate card-premium" data-tool="edit">
+        <article class="card card-animate card-premium" data-tool="Éditer PDF">
           <div class="card-premium-badge">Premium</div>
           <div class="card-top">
             <svg class="tool-icon"><use href="#i-edit"/></svg>
@@ -361,7 +380,8 @@
           <h3 data-i18n="card.edit.title">Éditer PDF</h3>
           <p data-i18n="card.edit.desc">Modifier texte et images.</p>
           <div class="card-actions">
-            <button class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
+            <!-- CORRECTION : Ajout de data-tool -->
+            <button data-tool="Éditer PDF" class="btn btn-primary btn-small" data-i18n="card.button.try">Essayer</button>
           </div>
         </article>
       </div>
@@ -492,6 +512,7 @@
         <div class="ai-demo-content">
           <h3 data-i18n="ai.demo.title">Posez vos questions en langage naturel</h3>
           <p data-i18n="ai.demo.desc">Notre IA comprend vos besoins et vous guide vers la meilleure solution.</p>
+          <!-- CORRECTION : Bouton IA - L'id est là, mais le data-ai-toggle sera sur le button en header pour ouvrir le widget -->
           <button class="btn btn-primary btn-large" id="open-ai-chat" data-i18n="ai.demo.cta">Essayer l'assistant IA</button>
         </div>
         <div class="ai-demo-visual">
@@ -600,7 +621,8 @@
 
   <!-- Avatar IA amélioré avec badge notification -->
   <div class="ai-assistant-container" id="ai-assistant-container">
-    <button class="ai-avatar-button" id="ai-avatar-button" aria-label="Ouvrir l'assistant IA">
+    <!-- CORRECTION : Ajout de data-ai-toggle -->
+    <button class="ai-avatar-button" id="ai-avatar-button" data-ai-toggle aria-label="Ouvrir l'assistant IA">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
       </svg>
