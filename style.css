@@ -135,7 +135,7 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 24px;
 }
 
 .nav-links a {
@@ -187,6 +187,51 @@ nav {
     box-shadow: var(--shadow-md);
 }
 
+/* Bouton Connexion */
+.btn-login {
+    padding: 10px 20px;
+    background: var(--white);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.btn-login:hover {
+    background: var(--bg-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Bouton S'inscrire */
+.btn-signup {
+    padding: 10px 20px;
+    background: var(--gradient-primary);
+    border: none;
+    color: var(--white);
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-md);
+    font-size: 14px;
+}
+
+.btn-signup:hover {
+    background: var(--gradient-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
 .language-switcher {
     padding: 10px 16px;
     background: var(--bg-light);
@@ -198,7 +243,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 8px;
-    position: relative; /* Assure que le menu est ancré relativement au bouton */
+    position: relative;
 }
 
 .language-switcher:hover {
@@ -891,6 +936,15 @@ footer {
     overflow-y: auto;
 }
 
+.welcome-message {
+    display: flex;
+    gap: 16px;
+}
+
+.message-content {
+    flex: 1;
+}
+
 .ai-message {
     display: flex;
     gap: 16px;
@@ -937,6 +991,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top: 16px;
 }
 
 .quick-action-btn {
@@ -1005,7 +1060,7 @@ footer {
 }
 
 /* ========================================
-   LANGUAGE MENU (FIXÉ POUR AFFICHAGE)
+   LANGUAGE MENU
    ======================================== */
 
 .language-menu {
@@ -1018,7 +1073,7 @@ footer {
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
     padding: 8px;
-    min-width: 200px; /* Augmenté pour meilleur affichage des drapeaux */
+    min-width: 200px;
     z-index: 1000;
     animation: slideDown 0.3s ease;
 }
@@ -1061,9 +1116,9 @@ footer {
 }
 
 .language-option .flag {
-    font-size: 24px; /* Drapeaux plus grands et visibles */
+    font-size: 24px;
     display: inline-block;
-    width: 30px; /* Centrage */
+    width: 30px;
     text-align: center;
 }
 
@@ -1132,6 +1187,14 @@ footer {
 
     .nav-links.active {
         display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 20px;
+        box-shadow: var(--shadow-md);
     }
 
     .mobile-menu-btn {
@@ -1159,7 +1222,7 @@ footer {
         right: auto;
         left: 50%;
         transform: translateX(-50%);
-        min-width: 220px; /* Ajusté pour mobile */
+        min-width: 220px;
     }
 }
 
