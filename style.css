@@ -77,6 +77,16 @@ body {
     right: 0;
 }
 
+[dir="rtl"] .language-menu {
+    right: auto;
+    left: 0;
+}
+
+[dir="rtl"] .language-option {
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
 /* ========================================
    HEADER & NAVIGATION
    ======================================== */
@@ -126,18 +136,6 @@ nav {
     display: flex;
     align-items: center;
     gap: 32px;
-}
-
-.nav-links.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--white);
-    padding: 20px;
-    box-shadow: var(--shadow-md);
 }
 
 .nav-links a {
@@ -200,6 +198,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 8px;
+    position: relative; /* Assure que le menu est ancré relativement au bouton */
 }
 
 .language-switcher:hover {
@@ -1006,7 +1005,7 @@ footer {
 }
 
 /* ========================================
-   LANGUAGE MENU
+   LANGUAGE MENU (FIXÉ POUR AFFICHAGE)
    ======================================== */
 
 .language-menu {
@@ -1019,7 +1018,7 @@ footer {
     border-radius: 12px;
     box-shadow: var(--shadow-lg);
     padding: 8px;
-    min-width: 180px;
+    min-width: 200px; /* Augmenté pour meilleur affichage des drapeaux */
     z-index: 1000;
     animation: slideDown 0.3s ease;
 }
@@ -1062,7 +1061,10 @@ footer {
 }
 
 .language-option .flag {
-    font-size: 20px;
+    font-size: 24px; /* Drapeaux plus grands et visibles */
+    display: inline-block;
+    width: 30px; /* Centrage */
+    text-align: center;
 }
 
 /* ========================================
@@ -1151,6 +1153,13 @@ footer {
     .modal-content {
         width: 95%;
         max-height: 90vh;
+    }
+
+    .language-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 220px; /* Ajusté pour mobile */
     }
 }
 
