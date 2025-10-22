@@ -99,7 +99,11 @@
             'ai.quick.merge': 'Fusionner des PDF',
             'ai.quick.split': 'Diviser un PDF',
             'ai.quick.compress': 'Compresser un PDF',
-            'ai.placeholder': 'Posez votre question...'
+            'ai.placeholder': 'Posez votre question...',
+            'upload.title': 'Glissez vos fichiers ici',
+            'upload.subtitle': 'ou cliquez pour sélectionner',
+            'upload.button': 'Sélectionner des fichiers',
+            'upload.process': 'Traiter les fichiers'
         },
         en: {
             'logo': 'PDF Suite Pro',
@@ -190,7 +194,11 @@
             'ai.quick.merge': 'Merge PDFs',
             'ai.quick.split': 'Split PDF',
             'ai.quick.compress': 'Compress PDF',
-            'ai.placeholder': 'Ask your question...'
+            'ai.placeholder': 'Ask your question...',
+            'upload.title': 'Drop your files here',
+            'upload.subtitle': 'or click to select',
+            'upload.button': 'Select files',
+            'upload.process': 'Process files'
         },
         es: {
             'logo': 'PDF Suite Pro',
@@ -281,7 +289,11 @@
             'ai.quick.merge': 'Fusionar PDFs',
             'ai.quick.split': 'Dividir PDF',
             'ai.quick.compress': 'Comprimir PDF',
-            'ai.placeholder': 'Haz tu pregunta...'
+            'ai.placeholder': 'Haz tu pregunta...',
+            'upload.title': 'Arrastra tus archivos aquí',
+            'upload.subtitle': 'o haz clic para seleccionar',
+            'upload.button': 'Seleccionar archivos',
+            'upload.process': 'Procesar archivos'
         },
         de: {
             'logo': 'PDF Suite Pro',
@@ -372,7 +384,11 @@
             'ai.quick.merge': 'PDFs zusammenführen',
             'ai.quick.split': 'PDF teilen',
             'ai.quick.compress': 'PDF komprimieren',
-            'ai.placeholder': 'Stellen Sie Ihre Frage...'
+            'ai.placeholder': 'Stellen Sie Ihre Frage...',
+            'upload.title': 'Dateien hier ablegen',
+            'upload.subtitle': 'oder zum Auswählen klicken',
+            'upload.button': 'Dateien auswählen',
+            'upload.process': 'Dateien verarbeiten'
         },
         ar: {
             'logo': 'PDF Suite Pro',
@@ -463,7 +479,11 @@
             'ai.quick.merge': 'دمج ملفات PDF',
             'ai.quick.split': 'تقسيم PDF',
             'ai.quick.compress': 'ضغط PDF',
-            'ai.placeholder': 'اطرح سؤالك...'
+            'ai.placeholder': 'اطرح سؤالك...',
+            'upload.title': 'اسحب ملفاتك هنا',
+            'upload.subtitle': 'أو انقر للتحديد',
+            'upload.button': 'اختر الملفات',
+            'upload.process': 'معالجة الملفات'
         }
     };
 
@@ -723,6 +743,198 @@
     }
 
     // ========================================
+    // GESTION DU MODAL UPLOAD
+    // ========================================
+    
+    const uploadModal = document.getElementById('uploadModal');
+    const closeUpload = document.getElementById('closeUpload');
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const selectFileBtn = document.getElementById('selectFileBtn');
+    const fileList = document.getElementById('fileList');
+    const processBtn = document.getElementById('processBtn');
+    const modalToolTitle = document.getElementById('modalToolTitle');
+    
+    let selectedFiles = [];
+
+    // Ouvrir le modal pour chaque outil
+    document.querySelectorAll('.tool-card .btn-primary').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const toolTitle = btn.closest('.tool-card').querySelector('h3').textContent;
+            if (modalToolTitle) {
+                modalToolTitle.textContent = toolTitle;
+            }
+            if (uploadModal) {
+                uploadModal.classList.add('active');
+            }
+            selectedFiles = [];
+            if (fileList) {
+                fileList.innerHTML = '';
+            }
+            if (processBtn) {
+                processBtn.style.display = 'none';
+            }
+        });
+    });
+
+    // Fermer le modal
+    if (closeUpload) {
+        closeUpload.addEventListener('click', () => {
+            if (uploadModal) {
+                uploadModal.classList.remove('active');
+            }
+        });
+    }
+
+    if (uploadModal) {
+        uploadModal.addEventListener('click', (e) => {
+            if (e.target === uploadModal) {
+                uploadModal.classList.remove('active');
+            }
+        });
+    }
+
+    // Clic sur la zone d'upload
+    if (uploadArea) {
+        uploadArea.addEventListener('click', () => {
+            if (fileInput) {
+                fileInput.click();
+            }
+        });
+    }
+
+    if (selectFileBtn) {
+        selectFileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (fileInput) {
+                fileInput.click();
+            }
+        });
+    }
+
+    // Drag & Drop
+    if (uploadArea) {
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files).filter(file => file.type === 'application/pdf');
+            addFiles(files);
+        });
+    }
+
+    // Sélection de fichiers
+    if (fileInput) {
+        fileInput.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            addFiles(files);
+        });
+    }
+
+    function addFiles(files) {
+        files.forEach(file => {
+            if (!selectedFiles.some(f => f.name === file.name)) {
+                selectedFiles.push(file);
+                addFileToList(file);
+            }
+        });
+        
+        if (selectedFiles.length > 0 && processBtn) {
+            processBtn.style.display = 'flex';
+        }
+    }
+
+    function addFileToList(file) {
+        if (!fileList) return;
+        
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-item';
+        fileItem.innerHTML = `
+            <div class="file-info">
+                <div class="file-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="file-details">
+                    <h5>${file.name}</h5>
+                    <p>${(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                </div>
+            </div>
+            <button class="remove-file" data-filename="${file.name}">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+        
+        fileList.appendChild(fileItem);
+        
+        // Supprimer le fichier
+        fileItem.querySelector('.remove-file').addEventListener('click', () => {
+            selectedFiles = selectedFiles.filter(f => f.name !== file.name);
+            fileItem.remove();
+            if (selectedFiles.length === 0 && processBtn) {
+                processBtn.style.display = 'none';
+            }
+        });
+    }
+
+    // Traiter les fichiers
+    if (processBtn) {
+        processBtn.addEventListener('click', () => {
+            processFiles();
+        });
+    }
+
+    function processFiles() {
+        const uploadContainer = document.querySelector('.upload-container');
+        if (!uploadContainer) return;
+        
+        uploadContainer.innerHTML = `
+            <div class="processing">
+                <div class="spinner"></div>
+                <div>
+                    <h4>Traitement en cours...</h4>
+                    <p>Veuillez patienter</p>
+                </div>
+            </div>
+        `;
+        
+        setTimeout(() => {
+            uploadContainer.innerHTML = `
+                <div class="processing">
+                    <i class="fas fa-check-circle" style="font-size: 64px; color: #10b981;"></i>
+                    <div>
+                        <h4>Succès !</h4>
+                        <p>Vos fichiers ont été traités avec succès</p>
+                        <button class="btn-primary" style="margin-top: 20px;" id="downloadBtn">
+                            <i class="fas fa-download"></i>
+                            Télécharger le résultat
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Ajouter l'événement au bouton de téléchargement
+            const downloadBtn = document.getElementById('downloadBtn');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    alert('Téléchargement simulé ! En production, le fichier serait téléchargé ici.');
+                    if (uploadModal) {
+                        uploadModal.classList.remove('active');
+                    }
+                });
+            }
+        }, 3000);
+    }
+
+    // ========================================
     // SCROLL ANIMATIONS
     // ========================================
     
@@ -756,7 +968,7 @@
                     behavior: 'smooth',
                     block: 'start'
                 });
-                if (navLinks.classList.contains('active')) {
+                if (navLinks && navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                 }
             }
@@ -769,6 +981,6 @@
     
     translatePage(currentLang);
     
-    console.log('PDF Suite Pro initialized successfully! 🚀');
+    console.log('✅ PDF Suite Pro initialized successfully! 🚀');
 
 })();
