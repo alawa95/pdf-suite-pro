@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">PDF Suite Pro - Outils PDF Gratuits en Ligne</title>
-    <meta name="description" content="Suite complète d'outils PDF gratuits pour fusionner, diviser, compresser et convertir vos fichiers PDF en ligne">
+    <title>PDF Suite Pro - Tous vos outils PDF en ligne</title>
+    <meta name="description" content="Convertissez, fusionnez, compressez et protégez vos PDF gratuitement. Interface professionnelle et sécurisée.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header avec navigation -->
+    <!-- HEADER -->
     <header>
         <nav class="container">
             <div class="logo">
                 <i class="fas fa-file-pdf"></i>
-                <span>PDF Suite Pro</span>
+                <span data-i18n="logo">PDF Suite Pro</span>
             </div>
             <div class="nav-links">
-                <a href="#features" data-i18n="nav.features">Fonctionnalités</a>
                 <a href="#tools" data-i18n="nav.tools">Outils</a>
+                <a href="#features" data-i18n="nav.features">Fonctionnalités</a>
                 <a href="#pricing" data-i18n="nav.pricing">Tarifs</a>
                 <button class="btn-secondary" id="assistantBtn">
                     <i class="fas fa-robot"></i>
                     <span data-i18n="nav.assistant">Assistant IA</span>
                 </button>
                 <button class="language-switcher" id="languageBtn">
-                    <i class="fas fa-globe"></i>
+                    <span id="currentFlag">🇫🇷</span>
                     <span id="currentLang">FR</span>
                 </button>
             </div>
@@ -35,34 +35,34 @@
         </nav>
     </header>
 
-    <!-- Section Hero -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1 data-i18n="hero.title">Tous vos outils PDF en un seul endroit</h1>
                 <p data-i18n="hero.subtitle">Fusionnez, divisez, compressez et convertissez vos fichiers PDF gratuitement et en toute sécurité</p>
                 <div class="cta-buttons">
-                    <button class="btn-primary" data-action="merge">
+                    <button class="btn-primary">
                         <i class="fas fa-compress"></i>
-                        <span data-i18n="hero.cta.merge">Fusionner des PDF</span>
+                        <span data-i18n="hero.merge">Fusionner des PDF</span>
                     </button>
-                    <button class="btn-secondary" data-action="split">
+                    <button class="btn-secondary">
                         <i class="fas fa-cut"></i>
-                        <span data-i18n="hero.cta.split">Diviser un PDF</span>
+                        <span data-i18n="hero.split">Diviser un PDF</span>
                     </button>
                 </div>
                 <div class="trust-indicators">
                     <div class="trust-item">
                         <i class="fas fa-shield-alt"></i>
-                        <span data-i18n="hero.trust.secure">100% Sécurisé</span>
+                        <span data-i18n="hero.secure">100% Sécurisé</span>
                     </div>
                     <div class="trust-item">
                         <i class="fas fa-cloud"></i>
-                        <span data-i18n="hero.trust.cloud">Traitement cloud</span>
+                        <span data-i18n="hero.cloud">Traitement cloud</span>
                     </div>
                     <div class="trust-item">
                         <i class="fas fa-infinity"></i>
-                        <span data-i18n="hero.trust.unlimited">Utilisation illimitée</span>
+                        <span data-i18n="hero.unlimited">Utilisation illimitée</span>
                     </div>
                 </div>
             </div>
@@ -78,87 +78,177 @@
         </div>
     </section>
 
-    <!-- Section Outils -->
+    <!-- TOOLS SECTION -->
     <section id="tools" class="tools-section">
         <div class="container">
             <h2 data-i18n="tools.title">Outils PDF Populaires</h2>
             <p class="section-subtitle" data-i18n="tools.subtitle">Choisissez l'outil dont vous avez besoin</p>
             
             <div class="tools-grid">
-                <!-- Fusionner PDF -->
-                <div class="tool-card" data-tool="merge">
-                    <div class="tool-icon merge">
-                        <i class="fas fa-compress"></i>
-                    </div>
-                    <h3 data-i18n="tools.merge.title">Fusionner PDF</h3>
-                    <p data-i18n="tools.merge.description">Combinez plusieurs fichiers PDF en un seul document</p>
-                    <button class="btn-primary" data-action="merge">
-                        <span data-i18n="tools.merge.button">Fusionner maintenant</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <!-- Diviser PDF -->
-                <div class="tool-card" data-tool="split">
-                    <div class="tool-icon split">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <h3 data-i18n="tools.split.title">Diviser PDF</h3>
-                    <p data-i18n="tools.split.description">Séparez un PDF en plusieurs fichiers distincts</p>
-                    <button class="btn-primary" data-action="split">
-                        <span data-i18n="tools.split.button">Diviser maintenant</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <!-- Compresser PDF -->
-                <div class="tool-card" data-tool="compress">
-                    <div class="tool-icon compress">
-                        <i class="fas fa-file-archive"></i>
-                    </div>
-                    <h3 data-i18n="tools.compress.title">Compresser PDF</h3>
-                    <p data-i18n="tools.compress.description">Réduisez la taille de vos fichiers PDF</p>
-                    <button class="btn-primary" data-action="compress">
-                        <span data-i18n="tools.compress.button">Compresser maintenant</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
                 <!-- PDF vers Word -->
-                <div class="tool-card" data-tool="pdf-to-word">
+                <div class="tool-card">
                     <div class="tool-icon convert">
                         <i class="fas fa-file-word"></i>
                     </div>
                     <h3 data-i18n="tools.pdfToWord.title">PDF vers Word</h3>
-                    <p data-i18n="tools.pdfToWord.description">Convertissez vos PDF en documents Word éditables</p>
-                    <button class="btn-primary" data-action="pdf-to-word">
-                        <span data-i18n="tools.pdfToWord.button">Convertir maintenant</span>
+                    <p data-i18n="tools.pdfToWord.desc">Convertir PDF en Word modifiable</p>
+                    <span class="tool-badge free" data-i18n="badge.free">Gratuit</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
 
                 <!-- Word vers PDF -->
-                <div class="tool-card" data-tool="word-to-pdf">
+                <div class="tool-card">
                     <div class="tool-icon convert">
                         <i class="fas fa-file-pdf"></i>
                     </div>
                     <h3 data-i18n="tools.wordToPdf.title">Word vers PDF</h3>
-                    <p data-i18n="tools.wordToPdf.description">Transformez vos documents Word en PDF</p>
-                    <button class="btn-primary" data-action="word-to-pdf">
-                        <span data-i18n="tools.wordToPdf.button">Convertir maintenant</span>
+                    <p data-i18n="tools.wordToPdf.desc">Convertir documents Word en PDF</p>
+                    <span class="tool-badge free" data-i18n="badge.free">Gratuit</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
 
-                <!-- Excel vers PDF -->
-                <div class="tool-card" data-tool="excel-to-pdf">
+                <!-- JPG vers PDF -->
+                <div class="tool-card">
                     <div class="tool-icon convert">
-                        <i class="fas fa-file-excel"></i>
+                        <i class="fas fa-image"></i>
                     </div>
-                    <h3 data-i18n="tools.excelToPdf.title">Excel vers PDF</h3>
-                    <p data-i18n="tools.excelToPdf.description">Convertissez vos feuilles Excel en PDF</p>
-                    <button class="btn-primary" data-action="excel-to-pdf">
-                        <span data-i18n="tools.excelToPdf.button">Convertir maintenant</span>
+                    <h3 data-i18n="tools.jpgToPdf.title">JPG vers PDF</h3>
+                    <p data-i18n="tools.jpgToPdf.desc">Convertir images en PDF</p>
+                    <span class="tool-badge free" data-i18n="badge.free">Gratuit</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Fusionner PDF -->
+                <div class="tool-card">
+                    <div class="tool-icon merge">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                    </div>
+                    <h3 data-i18n="tools.merge.title">Fusionner PDF</h3>
+                    <p data-i18n="tools.merge.desc">Combiner plusieurs PDF</p>
+                    <span class="tool-badge free" data-i18n="badge.free">Gratuit</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Diviser PDF -->
+                <div class="tool-card">
+                    <div class="tool-icon split">
+                        <i class="fas fa-scissors"></i>
+                    </div>
+                    <h3 data-i18n="tools.split.title">Diviser PDF</h3>
+                    <p data-i18n="tools.split.desc">Séparer PDF en plusieurs fichiers</p>
+                    <span class="tool-badge free" data-i18n="badge.free">Gratuit</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Compresser PDF -->
+                <div class="tool-card">
+                    <div class="tool-icon compress">
+                        <i class="fas fa-file-archive"></i>
+                    </div>
+                    <h3 data-i18n="tools.compress.title">Compresser PDF</h3>
+                    <p data-i18n="tools.compress.desc">Réduire la taille du PDF</p>
+                    <span class="tool-badge free" data-i18n="badge.free">Gratuit</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Pivoter PDF -->
+                <div class="tool-card">
+                    <div class="tool-icon rotate">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 data-i18n="tools.rotate.title">Pivoter PDF</h3>
+                    <p data-i18n="tools.rotate.desc">Faire pivoter les pages PDF</p>
+                    <span class="tool-badge free" data-i18n="badge.free">Gratuit</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Protéger PDF -->
+                <div class="tool-card">
+                    <div class="tool-icon protect">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 data-i18n="tools.protect.title">Protéger PDF</h3>
+                    <p data-i18n="tools.protect.desc">Ajouter mot de passe</p>
+                    <span class="tool-badge premium" data-i18n="badge.premium">Premium</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Déverrouiller PDF -->
+                <div class="tool-card">
+                    <div class="tool-icon unlock">
+                        <i class="fas fa-unlock"></i>
+                    </div>
+                    <h3 data-i18n="tools.unlock.title">Déverrouiller PDF</h3>
+                    <p data-i18n="tools.unlock.desc">Supprimer mot de passe PDF</p>
+                    <span class="tool-badge premium" data-i18n="badge.premium">Premium</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Signer PDF -->
+                <div class="tool-card">
+                    <div class="tool-icon sign">
+                        <i class="fas fa-signature"></i>
+                    </div>
+                    <h3 data-i18n="tools.sign.title">Signer PDF</h3>
+                    <p data-i18n="tools.sign.desc">Ajouter signature numérique</p>
+                    <span class="tool-badge premium" data-i18n="badge.premium">Premium</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Filigrane -->
+                <div class="tool-card">
+                    <div class="tool-icon watermark">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 data-i18n="tools.watermark.title">Filigrane</h3>
+                    <p data-i18n="tools.watermark.desc">Ajouter filigrane au PDF</p>
+                    <span class="tool-badge premium" data-i18n="badge.premium">Premium</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Éditer PDF -->
+                <div class="tool-card">
+                    <div class="tool-icon edit">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 data-i18n="tools.edit.title">Éditer PDF</h3>
+                    <p data-i18n="tools.edit.desc">Modifier texte et images</p>
+                    <span class="tool-badge premium" data-i18n="badge.premium">Premium</span>
+                    <button class="btn-primary">
+                        <span data-i18n="tools.button">Utiliser maintenant</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
@@ -166,13 +256,176 @@
         </div>
     </section>
 
-    <!-- Assistant IA Modal -->
+    <!-- FEATURES SECTION -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 data-i18n="features.title">Pourquoi choisir PDF Suite Pro ?</h2>
+            <p class="section-subtitle" data-i18n="features.subtitle">Découvrez ce qui rend PDF Suite Pro unique</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-i18n="features.security.title">Sécurité maximale</h3>
+                    <p data-i18n="features.security.desc">Vos fichiers sont cryptés et supprimés automatiquement après traitement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 data-i18n="features.speed.title">Ultra-rapide</h3>
+                    <p data-i18n="features.speed.desc">Traitement en quelques secondes grâce à nos serveurs optimisés.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 data-i18n="features.accuracy.title">Précision parfaite</h3>
+                    <p data-i18n="features.accuracy.desc">Préservation de la mise en page et du formatage original.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 data-i18n="features.cloud.title">100% en ligne</h3>
+                    <p data-i18n="features.cloud.desc">Aucune installation requise, accessible de partout.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 data-i18n="features.ai.title">Assistant IA</h3>
+                    <p data-i18n="features.ai.desc">Support intelligent disponible 24/7 pour vous guider.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 data-i18n="features.quality.title">Qualité pro</h3>
+                    <p data-i18n="features.quality.desc">Utilisé par plus d'un million de professionnels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 data-i18n="testimonials.title">Ils nous font confiance</h2>
+            <p class="section-subtitle" data-i18n="testimonials.subtitle">Plus de 1 million d'utilisateurs satisfaits</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p data-i18n="testimonials.quote1">"Excellent outil ! J'utilise PDF Suite Pro tous les jours pour mon travail. Rapide, fiable et très intuitif."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div>
+                            <div class="author-name" data-i18n="testimonials.author1">Marie Dupont</div>
+                            <div class="author-role" data-i18n="testimonials.role1">Chef de projet</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p data-i18n="testimonials.quote2">"Interface très professionnelle et facile à utiliser. Les conversions sont de qualité exceptionnelle."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div>
+                            <div class="author-name" data-i18n="testimonials.author2">Jean Martin</div>
+                            <div class="author-role" data-i18n="testimonials.role2">Entrepreneur</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p data-i18n="testimonials.quote3">"Un gain de temps considérable ! Je recommande vivement PDF Suite Pro à tous mes collègues."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <div class="author-name" data-i18n="testimonials.author3">Sophie Bernard</div>
+                            <div class="author-role" data-i18n="testimonials.role3">Avocate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="cta.title">Prêt à transformer vos PDF ?</h2>
+                <p data-i18n="cta.subtitle">Rejoignez plus d'un million d'utilisateurs qui font confiance à PDF Suite Pro</p>
+                <button class="btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    <span data-i18n="cta.button">Commencer gratuitement</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-file-pdf"></i>
+                        <span data-i18n="logo">PDF Suite Pro</span>
+                    </div>
+                    <p data-i18n="footer.tagline">Suite complète pour vos PDF. Rapide, sûre, professionnelle.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer.product">Produit</h4>
+                    <ul>
+                        <li><a href="#tools" data-i18n="nav.tools">Outils</a></li>
+                        <li><a href="#pricing" data-i18n="nav.pricing">Tarifs</a></li>
+                        <li><a href="#features" data-i18n="nav.features">Fonctionnalités</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <ul>
+                        <li><a href="#" id="footerAssistantBtn" data-i18n="nav.assistant">Assistant IA</a></li>
+                        <li><a href="#" data-i18n="footer.help">Centre d'aide</a></li>
+                        <li><a href="#" data-i18n="footer.contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-i18n="footer.legal">Légal</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer.privacy">Confidentialité</a></li>
+                        <li><a href="#" data-i18n="footer.terms">Conditions</a></li>
+                        <li><a href="#" data-i18n="footer.cookies">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2025 PDF Suite Pro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL ASSISTANT IA -->
     <div id="assistantModal" class="modal">
-        <div class="modal-content assistant-modal">
+        <div class="modal-content">
             <div class="modal-header">
                 <h3>
                     <i class="fas fa-robot"></i>
-                    <span data-i18n="assistant.title">Assistant IA PDF</span>
+                    <span data-i18n="ai.title">Assistant IA PDF</span>
                 </h3>
                 <button class="close-btn" id="closeAssistant">
                     <i class="fas fa-times"></i>
@@ -184,26 +437,26 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="message-content">
-                        <p data-i18n="assistant.welcome">Bonjour ! Je suis votre assistant IA pour les PDF. Comment puis-je vous aider aujourd'hui ?</p>
+                        <p data-i18n="ai.welcome">Bonjour ! Je suis votre assistant IA pour les PDF. Comment puis-je vous aider aujourd'hui ?</p>
                         <div class="quick-actions">
-                            <button class="quick-action-btn" data-action="merge">
+                            <button class="quick-action-btn">
                                 <i class="fas fa-compress"></i>
-                                <span data-i18n="assistant.actions.merge">Fusionner des PDF</span>
+                                <span data-i18n="ai.quick.merge">Fusionner des PDF</span>
                             </button>
-                            <button class="quick-action-btn" data-action="split">
+                            <button class="quick-action-btn">
                                 <i class="fas fa-cut"></i>
-                                <span data-i18n="assistant.actions.split">Diviser un PDF</span>
+                                <span data-i18n="ai.quick.split">Diviser un PDF</span>
                             </button>
-                            <button class="quick-action-btn" data-action="compress">
+                            <button class="quick-action-btn">
                                 <i class="fas fa-file-archive"></i>
-                                <span data-i18n="assistant.actions.compress">Compresser un PDF</span>
+                                <span data-i18n="ai.quick.compress">Compresser un PDF</span>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="chat-input-container">
-                <input type="text" id="chatInput" placeholder="Posez votre question..." data-i18n-placeholder="assistant.input.placeholder">
+                <input type="text" id="chatInput" data-i18n-placeholder="ai.placeholder" placeholder="Posez votre question...">
                 <button class="send-btn" id="sendBtn">
                     <i class="fas fa-paper-plane"></i>
                 </button>
@@ -211,7 +464,7 @@
         </div>
     </div>
 
-    <!-- Menu de sélection de langue -->
+    <!-- MENU DE LANGUE -->
     <div id="languageMenu" class="language-menu">
         <button class="language-option" data-lang="fr">
             <span class="flag">🇫🇷</span>
@@ -228,6 +481,10 @@
         <button class="language-option" data-lang="de">
             <span class="flag">🇩🇪</span>
             <span>Deutsch</span>
+        </button>
+        <button class="language-option" data-lang="ar">
+            <span class="flag">🇸🇦</span>
+            <span>العربية</span>
         </button>
     </div>
 
