@@ -475,6 +475,38 @@
         </div>
     </div>
 
+    <!-- MODAL UPLOAD PDF -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content upload-modal">
+            <div class="modal-header">
+                <h3>
+                    <i class="fas fa-file-pdf"></i>
+                    <span id="modalToolTitle">Fusionner PDF</span>
+                </h3>
+                <button class="close-btn" id="closeUpload">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="upload-container">
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h4 data-i18n="upload.title">Glissez vos fichiers ici</h4>
+                    <p data-i18n="upload.subtitle">ou cliquez pour sélectionner</p>
+                    <input type="file" id="fileInput" accept=".pdf" multiple hidden>
+                    <button class="btn-primary" id="selectFileBtn">
+                        <i class="fas fa-folder-open"></i>
+                        <span data-i18n="upload.button">Sélectionner des fichiers</span>
+                    </button>
+                </div>
+                <div class="file-list" id="fileList"></div>
+                <button class="btn-primary btn-process" id="processBtn" style="display: none;">
+                    <i class="fas fa-play"></i>
+                    <span data-i18n="upload.process">Traiter les fichiers</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- MENU DE LANGUE -->
     <div id="languageMenu" class="language-menu">
         <button class="language-option" data-lang="fr">
